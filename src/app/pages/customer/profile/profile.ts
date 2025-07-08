@@ -54,7 +54,7 @@ export class Profile implements OnInit {
     this.isEditing = false;
     this.userService.getProfile().subscribe({
       next: (res) => {
-        this.profile = res; // Reset profile to original values
+        this.profile = res;
       },
       error: () => {
         this.toastr.error('Failed to reset profile');

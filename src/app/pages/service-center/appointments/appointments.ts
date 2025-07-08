@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ServiceCenterAppointmentsService } from '../../../shared/services/appointment.service';
 import { FormsModule } from '@angular/forms';
 import { scheduled } from 'rxjs';
- 
+
 @Component({
   selector: 'appointments',
   standalone: true,
@@ -16,10 +16,10 @@ export class AppointmentsComponent {
   pendingAppointments: any[] = [];
   completedAppointments: any[] = [];
   cancelledAppointments: any[] = [];
- 
+
   isLoading = false;
   errorMessage: string | null = null;
- 
+
   // Pagination
   currentPage = {
     scheduled: 1,
@@ -27,17 +27,17 @@ export class AppointmentsComponent {
     cancelled: 1
   };
   itemsPerPage = 5;
- 
-  constructor(private appointmentService: ServiceCenterAppointmentsService) {}
- 
+
+  constructor(private appointmentService: ServiceCenterAppointmentsService) { }
+
   ngOnInit(): void {
     this.loadAppointments();
   }
- 
+
   loadAppointments(): void {
     this.isLoading = true;
     this.errorMessage = null;
- 
+
     this.appointmentService.getAppointments().subscribe({
       next: (res) => {
         this.appointments = res;
@@ -52,7 +52,7 @@ export class AppointmentsComponent {
       }
     });
   }
- 
+
   markAsCompleted(appointmentId: number): void {
     this.isLoading = true;
     this.appointmentService.updateBookingStatus(appointmentId, 'Completed').subscribe({
@@ -63,17 +63,17 @@ export class AppointmentsComponent {
       }
     });
   }
- 
+
   // Helper for pagination
   getPaginatedData(data: any[], type: 'scheduled' | 'completed' | 'cancelled') {
     const start = (this.currentPage[type] - 1) * this.itemsPerPage;
     return data.slice(start, start + this.itemsPerPage);
   }
- 
+
   getTotalPages(data: any[]) {
     return Math.ceil(data.length / this.itemsPerPage);
   }
- 
+
   changePage(type: 'scheduled' | 'completed' | 'cancelled', newPage: number) {
     this.currentPage[type] = newPage;
   }

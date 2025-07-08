@@ -1,30 +1,70 @@
-<h2>User Profile</h2>
+<div class="profile-container">
+  <form #profileForm="ngForm" (ngSubmit)="onUpdate(profileForm)" class="profile-form">
+    <h2 class="profile-title">User Profile</h2>
 
-<form (ngSubmit)="onUpdate()">
-  <label>Name</label>
-  <input type="text" [(ngModel)]="profile.name" name="name" required /><br /><br />
+    <div class="avatar-circle">
+      <span class="avatar-letter">{{ profile.name?.charAt(0).toUpperCase() }}</span>
+    </div>
 
-  <label>Email</label>
-  <input type="email" [value]="profile.email" disabled /><br /><br />
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input 
+        type="text" 
+        id="name" 
+        name="name" 
+        required 
+        minlength="2" 
+        [(ngModel)]="profile.name" 
+        #nameRef="ngModel" 
+        [disabled]="!isEditing">
+      <div *ngIf="nameRef.invalid && nameRef.touched && isEditing" class="error">Name is required (min 2 chars)</div>
+    </div>
 
-  <label>Phone</label>
-  <input type="text" [(ngModel)]="profile.phone" name="phone" required /><br /><br />
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" [value]="profile.email" disabled />
+    </div>
 
-  <label>Address</label>
-  <input type="text" [(ngModel)]="profile.address" name="address" /><br /><br />
+    <div class="form-group">
+      <label for="phone">Phone</label>
+      <input 
+        type="text" 
+        id="phone" 
+        name="phone" 
+        required 
+        [(ngModel)]="profile.phone" 
+        #phoneRef="ngModel" 
+        [disabled]="!isEditing">
+      <div *ngIf="phoneRef.invalid && phoneRef.touched && isEditing" class="error">Phone is required</div>
+    </div>
 
-  <div *ngIf="isServiceCenter">
-    <h3>Service Center Info</h3>
+    <div class="form-group">
+      <label for="address">Address</label>
+      <input type="text" id="address" name="address" [(ngModel)]="profile.address" [disabled]="!isEditing">
+    </div>
 
-    <label>Center Name</label>
-    <input type="text" [(ngModel)]="profile.serviceCenterName" name="serviceCenterName" /><br /><br />
+    <!-- <div *ngIf="isServiceCenter">
+      <div class="form-group">
+        <label for="serviceCenterName">Center Name</label>
+        <input type="text" id="serviceCenterName" name="serviceCenterName" 
+               [(ngModel)]="profile.serviceCenterName" [disabled]="!isEditing"
+               required #scNameRef="ngModel">
+        <div *ngIf="scNameRef.invalid && scNameRef.touched && isEditing" class="error">Service Center Name is required</div>
+      </div>
+      <div class="form-group">
+        <label for="serviceCenterLocation">Location</label>
+        <input type="text" id="serviceCenterLocation" name="serviceCenterLocation" [(ngModel)]="profile.serviceCenterLocation" [disabled]="!isEditing">
+      </div>
+      <div class="form-group">
+        <label for="serviceCenterContact">Contact</label>
+        <input type="text" id="serviceCenterContact" name="serviceCenterContact" [(ngModel)]="profile.serviceCenterContact" [disabled]="!isEditing">
+      </div>
+    </div> -->
 
-    <label>Location</label>
-    <input type="text" [(ngModel)]="profile.serviceCenterLocation" name="serviceCenterLocation" /><br /><br />
-
-    <label>Contact</label>
-    <input type="text" [(ngModel)]="profile.serviceCenterContact" name="serviceCenterContact" /><br /><br />
-  </div>
-
-  <button type="submit">Update Profile</button>
-</form>
+    <button *ngIf="!isEditing" type="button" (click)="startEditing()" class="submit-btn">Update Profile</button>
+    <button *ngIf="isEditing" type="submit" [disabled]="!profileForm.valid || isSubmitting" class="submit-btn">
+      {{ isSubmitting ? 'Saving...' : 'Save Changes' }}
+    </button>
+    <button *ngIf="isEditing" type="button" (click)="cancelEditing()" class="submit-btn cancel-btn">Cancel</button>
+  </form>
+</div>

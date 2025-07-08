@@ -26,15 +26,15 @@
         </thead>
         <tbody>
           <tr *ngFor="let appointment of getPaginatedData(pendingAppointments, 'scheduled')">
-            <td>{{ appointment.bookingId }}</td>
-            <td>{{ appointment.registrationNumber }}</td>
-            <td>{{ appointment.customerName }}</td>
-            <td>{{ appointment.mechanicName }}</td>
-            <td>{{ appointment.serviceTypeDescription }}</td>
+            <td [attr.data-label]="'Booking ID'">{{ appointment.bookingId }}</td>
+            <td [attr.data-label]="'Registration Number'">{{ appointment.registrationNumber }}</td>
+            <td [attr.data-label]="'Customer'">{{ appointment.customerName }}</td>
+            <td [attr.data-label]="'Mechanic'">{{ appointment.mechanicName }}</td>
+            <td [attr.data-label]="'Service Type'">{{ appointment.serviceTypeDescription }}</td>
             <td [attr.data-label]="'Date'">{{ appointment.date | date:'mediumDate' }}</td>
-            <td>{{ appointment.timeSlot }}</td>
-            <td>{{ appointment.price | currency }}</td>
-            <td>{{ appointment.serviceStatus }}</td>
+            <td [attr.data-label]="'Time Slot'">{{ appointment.timeSlot }}</td>
+            <td [attr.data-label]="'Price'">{{ appointment.price | currency }}</td>
+            <td [attr.data-label]="'Status'">{{ appointment.serviceStatus }}</td>
             <td>
               <button class="btn btn-success btn-sm" (click)="markAsCompleted(appointment.bookingId)">Mark as Completed</button>
             </td>
@@ -74,15 +74,15 @@
         </thead>
         <tbody>
           <tr *ngFor="let appointment of getPaginatedData(completedAppointments, 'completed')">
-            <td>{{ appointment.bookingId }}</td>
-            <td>{{ appointment.registrationNumber }}</td>
-            <td>{{ appointment.customerName }}</td>
-            <td>{{ appointment.mechanicName }}</td>
-            <td>{{ appointment.serviceTypeDescription }}</td>
+            <td [attr.data-label]="'Booking ID'">{{ appointment.bookingId }}</td>
+            <td [attr.data-label]="'Registration Number'">{{ appointment.registrationNumber }}</td>
+            <td [attr.data-label]="'Customer'">{{ appointment.customerName }}</td>
+            <td [attr.data-label]="'Mechanic'">{{ appointment.mechanicName }}</td>
+            <td [attr.data-label]="'Service Type'">{{ appointment.serviceTypeDescription }}</td>
             <td [attr.data-label]="'Date'">{{ appointment.date | date:'mediumDate' }}</td>
-            <td>{{ appointment.timeSlot }}</td>
-            <td>{{ appointment.price | currency }}</td>
-            <td>{{ appointment.serviceStatus }}</td>
+            <td [attr.data-label]="'Time Slot'">{{ appointment.timeSlot }}</td>
+            <td [attr.data-label]="'Price'">{{ appointment.price | currency }}</td>
+            <td [attr.data-label]="'Status'">{{ appointment.serviceStatus }}</td>
           </tr>
         </tbody>
       </table>
@@ -119,15 +119,15 @@
         </thead>
         <tbody>
           <tr *ngFor="let appointment of getPaginatedData(cancelledAppointments, 'cancelled')">
-            <td>{{ appointment.bookingId }}</td>
-            <td>{{ appointment.registrationNumber }}</td>
-            <td>{{ appointment.customerName }}</td>
-            <td>{{ appointment.mechanicName }}</td>
-            <td>{{ appointment.serviceTypeDescription }}</td>
+            <td [attr.data-label]="'Booking ID'">{{ appointment.bookingId }}</td>
+            <td [attr.data-label]="'Registration Number'">{{ appointment.registrationNumber }}</td>
+            <td [attr.data-label]="'Customer'">{{ appointment.customerName }}</td>
+            <td [attr.data-label]="'Mechanic'">{{ appointment.mechanicName }}</td>
+            <td [attr.data-label]="'Service Type'">{{ appointment.serviceTypeDescription }}</td>
             <td [attr.data-label]="'Date'">{{ appointment.date | date:'mediumDate' }}</td>
-            <td>{{ appointment.timeSlot }}</td>
-            <td>{{ appointment.price | currency }}</td>
-            <td>Cancelled</td>
+            <td [attr.data-label]="'Time Slot'">{{ appointment.timeSlot }}</td>
+            <td [attr.data-label]="'Price'">{{ appointment.price | currency }}</td>
+            <td [attr.data-label]="'Status'">{{ appointment.serviceStatus }}</td>
           </tr>
         </tbody>
       </table>

@@ -12,7 +12,7 @@ export class AddMechanicService {
 
   addMechanic(mechanicData: { mechanicName: string; expertise: string }): Observable<any> {
     const headers = new HttpHeaders({
-      Authorization: `Bearer ${sessionStorage.getItem('token')}`, // Include token for authentication
+      Authorization: `Bearer ${sessionStorage.getItem('token')}`,
     });
     return this.http.post(this.apiUrl, mechanicData, { headers });
   }

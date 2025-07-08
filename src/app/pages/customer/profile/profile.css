@@ -1,71 +1,71 @@
 /* General Styles */
 .profile-container {
-  max-width: 300px; /* Reduced width */
-  margin: 2rem auto; /* Reduced margin */
-  padding: 1rem; /* Reduced padding */
+  max-width: 700px; /* Increased width for two-column layout */
+  margin: 2rem auto;
+  padding: 1rem;
   background-color: #f0f4f8;
-  border-radius: 12px; /* Reduced border radius */
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* Reduced shadow intensity */
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .profile-title {
   text-align: center;
-  font-size: 1.25rem; /* Reduced font size */
-  margin-bottom: 0.5rem; /* Reduced margin */
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
 }
 
 .avatar-circle {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 50px; /* Reduced size */
-  height: 50px; /* Reduced size */
-  margin: 0 auto 0.75rem; /* Reduced margin */
+  width: 50px;
+  height: 50px;
+  margin: 0 auto 0.75rem;
   background-color: #3b82f6;
   border-radius: 50%;
 }
 
 .avatar-letter {
   color: #fff;
-  font-size: 1.25rem; /* Reduced font size */
+  font-size: 1.25rem;
   font-weight: bold;
 }
 
 .form-group {
-  margin-bottom: 0.75rem; /* Reduced margin */
+  margin-bottom: 0.75rem;
   display: flex;
   flex-direction: column;
 }
 
 .form-group label {
   font-weight: 600;
-  margin-bottom: 0.2rem; /* Reduced margin */
+  margin-bottom: 0.2rem;
 }
 
 .form-group input {
-  padding: 0.3rem 0.5rem; /* Reduced padding */
+  padding: 0.3rem 0.5rem;
   border: 1px solid #cbd5e1;
-  border-radius: 6px; /* Reduced border radius */
-  font-size: 0.85rem; /* Reduced font size */
+  border-radius: 6px;
+  font-size: 0.85rem;
 }
 
 .error {
   color: #ef4444;
-  font-size: 0.75rem; /* Reduced font size */
-  margin-top: 0.2rem; /* Reduced margin */
+  font-size: 0.75rem;
+  margin-top: 0.2rem;
 }
 
 .submit-btn {
   width: 100%;
-  padding: 0.5rem; /* Reduced padding */
+  padding: 0.5rem;
   background-color: #3b82f6;
   color: white;
   border: none;
-  border-radius: 6px; /* Reduced border radius */
-  font-size: 0.85rem; /* Reduced font size */
+  border-radius: 6px;
+  font-size: 0.85rem;
   font-weight: 600;
   transition: background-color 0.3s ease;
-  margin-top: 0.75rem; /* Reduced margin */
+  margin-top: 0.75rem;
 }
 
 .submit-btn:disabled {
@@ -77,70 +77,94 @@
   background-color: #2563eb;
 }
 
+.cancel-btn {
+  background-color: #64748b;
+}
+
+/* Two-column layout for ServiceCenter role */
+.grid-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.user-section,
+.service-center-section {
+  background-color: #ffffff;
+  padding: 0.75rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+}
+
 /* Responsive Styles */
 
 /* Tablet Screens (max-width: 768px) */
 @media (max-width: 768px) {
   .profile-container {
-    max-width: 280px; /* Adjusted width for tablets */
-    padding: 0.75rem; /* Reduced padding */
+    max-width: 90%;
+    padding: 0.75rem;
+  }
+
+  .grid-layout {
+    grid-template-columns: 1fr;
   }
 
   .profile-title {
-    font-size: 1.15rem; /* Reduced font size */
-    margin-bottom: 0.5rem; /* Reduced margin */
+    font-size: 1.15rem;
+    margin-bottom: 0.5rem;
   }
 
   .avatar-circle {
-    width: 45px; /* Reduced size */
-    height: 45px; /* Reduced size */
-    margin-bottom: 0.5rem; /* Reduced margin */
+    width: 45px;
+    height: 45px;
+    margin-bottom: 0.5rem;
   }
 
   .avatar-letter {
-    font-size: 1.15rem; /* Reduced font size */
+    font-size: 1.15rem;
   }
 
   .form-group input {
-    padding: 0.25rem 0.4rem; /* Reduced padding */
-    font-size: 0.8rem; /* Reduced font size */
+    padding: 0.25rem 0.4rem;
+    font-size: 0.8rem;
   }
 
   .submit-btn {
-    padding: 0.4rem; /* Reduced padding */
-    font-size: 0.8rem; /* Reduced font size */
+    padding: 0.4rem;
+    font-size: 0.8rem;
   }
 }
 
 /* Mobile Screens (max-width: 480px) */
 @media (max-width: 480px) {
   .profile-container {
-    max-width: 240px; /* Adjusted width for mobile screens */
-    padding: 0.5rem; /* Reduced padding */
+    max-width: 95%;
+    padding: 0.5rem;
   }
 
   .profile-title {
-    font-size: 1rem; /* Reduced font size */
-    margin-bottom: 0.4rem; /* Reduced margin */
+    font-size: 1rem;
+    margin-bottom: 0.4rem;
   }
 
   .avatar-circle {
-    width: 40px; /* Reduced size */
-    height: 40px; /* Reduced size */
-    margin-bottom: 0.4rem; /* Reduced margin */
+    width: 40px;
+    height: 40px;
+    margin-bottom: 0.4rem;
   }
 
   .avatar-letter {
-    font-size: 1rem; /* Reduced font size */
+    font-size: 1rem;
   }
 
   .form-group input {
-    padding: 0.2rem 0.3rem; /* Reduced padding */
-    font-size: 0.75rem; /* Reduced font size */
+    padding: 0.2rem 0.3rem;
+    font-size: 0.75rem;
   }
 
   .submit-btn {
-    padding: 0.3rem; /* Reduced padding */
-    font-size: 0.75rem; /* Reduced font size */
+    padding: 0.3rem;
+    font-size: 0.75rem;
   }
 }

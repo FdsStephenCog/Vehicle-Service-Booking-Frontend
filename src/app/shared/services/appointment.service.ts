@@ -21,7 +21,7 @@ export interface Appointment {
 export class ServiceCenterAppointmentsService {
   private apiUrl = 'http://localhost:5030/api/ServiceCenter/appointments';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   getAppointments(): Observable<Appointment[]> {
     const headers = new HttpHeaders({

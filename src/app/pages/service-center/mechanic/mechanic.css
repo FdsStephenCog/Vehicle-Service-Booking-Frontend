@@ -1,10 +1,10 @@
 /* Mechanic Container */
 /* .mechanic-container {
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
-} */
-h2 {
+     background-color: #f9f9f9;
+     border-radius: 8px;
+     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+ } */
+ h2 {
     color: #1976d2;
     margin-top: 32px;
     margin-bottom: 18px;
@@ -85,4 +85,90 @@ h2 {
 .btn-danger:hover {
     background-color: #dc3545;
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+
+/* --- NEW CSS FOR CUSTOM DIALOG --- */
+.custom-dialog-overlay {
+    position: fixed; /* Stays in place */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black overlay */
+    display: flex; /* Use flexbox to center the dialog */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure it's on top of other content */
+}
+
+.custom-dialog-box {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    width: 90%; /* Max width for smaller screens */
+    max-width: 450px; /* Max width for larger screens */
+    animation: fadeInScale 0.3s ease-out; /* Simple entry animation */
+}
+
+.custom-dialog-box .dialog-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+.custom-dialog-box .dialog-message {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 25px;
+    line-height: 1.5;
+}
+
+.custom-dialog-box .dialog-actions {
+    display: flex;
+    justify-content: flex-end; /* Align buttons to the right */
+    gap: 10px; /* Space between buttons */
+}
+
+/* Ensure buttons within the dialog are styled appropriately if your global btn classes don't cover them */
+.custom-dialog-box .btn {
+    padding: 8px 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.2s ease;
+}
+
+.custom-dialog-box .btn-secondary {
+    background-color: #6c757d;
+    color: #fff;
+    border: none;
+}
+.custom-dialog-box .btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+.custom-dialog-box .btn-danger {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+}
+.custom-dialog-box .btn-danger:hover {
+    background-color: #c82333;
+}
+
+/* Basic animation for dialog entry */
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }

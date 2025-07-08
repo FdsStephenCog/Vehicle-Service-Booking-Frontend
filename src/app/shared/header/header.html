@@ -1,4 +1,4 @@
-<header styles = "positon:sticky;" class="navbar">
+<header styles="positon:sticky;" class="navbar">
   <div class="logo-container">
     <img src="assets/images/logov4.png" alt="AutoServe Logo" class="logo" />
   </div>
@@ -24,15 +24,12 @@
       <a routerLink="/service-center/appointments" (click)="closeMobileMenu()">Appointments</a>
       <a routerLink="/service-center/mechanics" (click)="closeMobileMenu()">Mechanics</a>
       <a routerLink="/service-center/manage-services" (click)="closeMobileMenu()">Services</a>
+      <a routerLink="/profile" (click)="closeMobileMenu()">Profile</a>
       <a (click)="logout()">Logout</a>
     </ng-container>
 
     <!-- Not Logged In -->
     <ng-container *ngIf="!isLoggedIn">
-      <a routerLink="/" routerLinkActive="active-link" (click)="closeMobileMenu()">Home</a>
-      <a href="#" (click)="closeMobileMenu()">Services</a>
-      <a href="#" (click)="closeMobileMenu()">About</a>
-      <a href="#" (click)="closeMobileMenu()">Contact</a>
       <button class="btn-outline menu-btn" routerLink="/login" (click)="toggleLogin()">Login</button>
       <button class="btn-filled menu-btn" routerLink="/register" (click)="closeMobileMenu()">Register</button>
     </ng-container>

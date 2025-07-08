@@ -1,25 +1,25 @@
 <section class="mechanic-container container py-5">
-  <!-- Page Header -->
   <div class="mb-5">
     <h2 class="fw-bold text-primary">Manage Mechanics</h2>
   </div>
 
-  <!-- Add Mechanic Button -->
   <div class="text-center mb-4">
     <button routerLink="/service-center/add-mechanic" class="btn btn-primary btn-lg px-4 py-2 shadow">
       <i class="bi bi-plus-circle"></i> Add Mechanic
     </button>
   </div>
 
-  <!-- No Mechanics Found -->
-  <div *ngIf="mechanics.length === 0" class="text-center text-muted">
+  <div *ngIf="mechanics.length === 0 && !isLoading" class="text-center text-muted">
     <div class="alert alert-warning shadow-sm" role="alert">
       <i class="bi bi-info-circle"></i> No mechanics added yet. Click "Add Mechanic" to get started.
     </div>
   </div>
 
-  <!-- Mechanics List -->
-  <div class="row g-4" *ngIf="mechanics.length > 0">
+  <div *ngIf="isLoading" class="text-center text-info">
+    <p>Loading mechanics...</p>
+    </div>
+
+  <div class="row g-4" *ngIf="mechanics.length > 0 && !isLoading">
     <div class="col-lg-4 col-md-6" *ngFor="let mechanic of mechanics">
       <div class="card h-100 shadow-lg border-0">
         <div class="card-body">
@@ -29,11 +29,32 @@
           </p>
         </div>
         <div class="card-footer bg-light text-end">
-          <button class="btn btn-danger btn-sm px-3 py-1 shadow-sm" (click)="deleteMechanic(mechanic.mechanicId)">
+          <button class="btn btn-danger btn-sm px-3 py-1 shadow-sm" (click)="deleteMechanic(mechanic)">
             <i class="bi bi-trash"></i> Delete
           </button>
         </div>
       </div>
     </div>
   </div>
-</section>
+
+  <section class="mechanic-container container py-5">
+    <div class="custom-dialog-overlay" *ngIf="showConfirmDialog">
+      <div class="custom-dialog-box">
+        <h3 class="dialog-title">Confirm Deletion</h3>
+        <p class="dialog-message">
+          Are you sure you want to delete mechanic "{{ mechanicToDelete?.mechanicName }}"?
+          This action cannot be undone.
+        </p>
+        <div class="dialog-actions">
+          <button class="btn btn-secondary" (click)="cancelDelete()">Cancel</button>
+          <button class="btn btn-danger" (click)="confirmDelete()">Delete</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  </section>
+
+
+
+
+
